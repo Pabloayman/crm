@@ -39,6 +39,7 @@ const slackRedirectUri = new URL(
 if (env.google) {
 	const google: NonNullable<typeof socialProviders.google> = {
 		...env.google,
+		redirectUri: new URL("/api/auth/callback/google", env.appUrl).toString(),
 
 		scope: [...SYNC_SCOPES],
 
